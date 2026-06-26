@@ -1,72 +1,383 @@
-# VideoFrameX Desktop
+# 🎬 VideoFrameX Desktop
 
-Professional cross-platform Flutter desktop application for extracting full-resolution frames from local video files with native FFmpeg.
+> A professional cross-platform desktop application built with **Flutter** and **FFmpeg** for extracting high-quality image frames from videos while preserving the original resolution.
 
-## Features
+![Flutter](https://img.shields.io/badge/Flutter-3.x-blue?logo=flutter)
+![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Windows%20%7C%20Linux-success)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-- Local-only processing with `ffmpeg` and `ffprobe`
-- Drag-and-drop and browse-based video import
-- MP4, MOV, AVI, MKV, WEBM, and M4V validation with a 5 GB limit
-- Automatic metadata inspection for duration, resolution, FPS, bitrate, codec, and format
-- FPS presets plus decimal custom FPS
-- PNG, JPG, and WEBP frame output
-- Optional `HH:MM:SS` start/end extraction range
-- Output folder persistence
-- Frame count and disk usage estimation
-- Live progress, elapsed/remaining time, frame count, output size, and processing speed
-- Pause, resume, and cancel controls where supported by the host OS
-- Lazy frame gallery with preview, save, and delete actions
-- ZIP export for generated frames
-- Batch queue status view
-- Local extraction history
-- Settings for default FPS, format, output folder, theme, thumbnail size, and concurrent task preference
-- Light, dark, and system theme modes
+---
 
-## Runtime Prerequisite
+## 📖 Overview
 
-Install FFmpeg so both commands are available in `PATH`:
+VideoFrameX Desktop is a native desktop application that converts videos into image frames using the power of **FFmpeg**.
 
-```sh
-ffmpeg -version
-ffprobe -version
+Unlike browser-based tools, VideoFrameX runs entirely on your computer, allowing you to process large video files quickly while maintaining the original image quality.
+
+Perfect for:
+
+* 🎥 Video Editors
+* 📸 Photographers
+* 🎬 Content Creators
+* 🎮 Game Developers
+* 🎓 Researchers
+* 🧠 AI / Machine Learning Dataset Generation
+
+---
+
+# ✨ Features
+
+### 📁 Video Upload
+
+* Drag & Drop support
+* File Picker support
+* Supports:
+
+  * MP4
+  * MOV
+  * AVI
+  * MKV
+  * WEBM
+  * M4V
+
+---
+
+### 📊 Video Metadata
+
+Automatically displays:
+
+* File Name
+* File Size
+* Duration
+* Resolution
+* Frame Rate (FPS)
+* Codec
+* Format
+* Bitrate
+
+---
+
+### ⚙️ Extraction Settings
+
+Choose:
+
+* 1 FPS
+* 2 FPS
+* 5 FPS
+* 10 FPS
+* 15 FPS
+* 30 FPS
+* 60 FPS
+* Custom FPS
+
+Output formats:
+
+* PNG
+* JPG
+* WEBP
+
+---
+
+### 🎯 Time Range Extraction
+
+Extract frames from:
+
+* Entire video
+* Selected time range
+
+Example:
+
+00:01:00 → 00:02:30
+
+---
+
+### 🖼 Original Resolution Preservation
+
+Frames are extracted without resizing.
+
+Example:
+
+Video
+
+3840 × 2160
+
+↓
+
+Output
+
+3840 × 2160
+
+---
+
+### 📈 Live Progress Tracking
+
+Displays:
+
+* Progress Bar
+* Percentage
+* Frames Extracted
+* Processing Speed
+* Elapsed Time
+* Remaining Time
+
+---
+
+### 🖼 Frame Gallery
+
+* Thumbnail Preview
+* Responsive Grid
+* Full Image Preview
+* Zoom & Pan
+* Individual Download
+
+---
+
+### 📦 ZIP Export
+
+Export all extracted frames into:
+
+frames.zip
+
+---
+
+### 🌙 Dark Mode
+
+Supports:
+
+* Light Theme
+* Dark Theme
+
+Preference is saved automatically.
+
+---
+
+### 📜 Extraction History
+
+Keeps a local history of:
+
+* Video Name
+* Extraction Date
+* FPS
+* Output Folder
+* Frame Count
+
+---
+
+# 🚀 Tech Stack
+
+| Technology         | Purpose              |
+| ------------------ | -------------------- |
+| Flutter            | Desktop UI           |
+| Dart               | Programming Language |
+| FFmpeg             | Video Processing     |
+| FFprobe            | Video Metadata       |
+| Riverpod           | State Management     |
+| File Picker        | File Selection       |
+| Archive            | ZIP Generation       |
+| Photo View         | Image Preview        |
+| Shared Preferences | Local Settings       |
+
+---
+
+# 📂 Project Structure
+
+```text
+lib/
+│
+├── core/
+├── models/
+├── services/
+├── state/
+├── ui/
+├── widgets/
+├── utils/
+└── main.dart
 ```
 
-On this macOS machine they are available at:
+---
 
-```sh
-/opt/homebrew/bin/ffmpeg
-/opt/homebrew/bin/ffprobe
+# 🖥 Supported Platforms
+
+* ✅ macOS
+* ✅ Windows
+* ✅ Linux
+
+---
+
+# ⚡ Installation
+
+## Clone Repository
+
+```bash
+git clone https://github.com/yourusername/videoframex-desktop.git
 ```
 
-## Development
+Go into the project:
 
-```sh
+```bash
+cd videoframex-desktop
+```
+
+Install dependencies:
+
+```bash
 flutter pub get
+```
+
+Run:
+
+```bash
 flutter run -d macos
 ```
 
-## Verification
+---
 
-```sh
-flutter analyze
-flutter test
-flutter build macos
+# 📦 Build
+
+macOS
+
+```bash
+flutter build macos --release
 ```
 
-The latest verified macOS artifact is:
+Windows
+
+```bash
+flutter build windows --release
+```
+
+Linux
+
+```bash
+flutter build linux --release
+```
+
+---
+
+# 🔧 Requirements
+
+* Flutter 3.x
+* Dart SDK
+* FFmpeg
+* FFprobe
+
+Verify installation:
+
+```bash
+ffmpeg -version
+```
+
+```bash
+ffprobe -version
+```
+
+---
+
+# 🎯 Workflow
 
 ```text
-build/macos/Build/Products/Release/VideoFrameX Desktop.app
+Upload Video
+      │
+      ▼
+Read Metadata
+      │
+      ▼
+Choose FPS
+      │
+      ▼
+Select Output Folder
+      │
+      ▼
+Extract Frames
+      │
+      ▼
+Preview Images
+      │
+      ▼
+Export ZIP
 ```
 
-## Cross-Platform Builds
+---
 
-Run the build command on each target OS:
+# 📸 Example
 
-```sh
-flutter build macos
-flutter build windows
-flutter build linux
+Input
+
+```
+wedding_video.mp4
 ```
 
-Packaging into `.dmg` or `.AppImage` should be done with the platform packaging tool of choice after the Flutter release build is generated.
+Settings
+
+```
+FPS: 2
+Format: PNG
+```
+
+Output
+
+```
+frame_000001.png
+frame_000002.png
+frame_000003.png
+...
+```
+
+---
+
+# 📈 Performance
+
+Designed to process:
+
+* Large video files
+* 4K videos
+* Thousands of frames
+
+Uses:
+
+* Native FFmpeg
+* Background Processing
+* Lazy Loading
+* Efficient Memory Management
+
+---
+
+# 📌 Future Improvements
+
+* Batch Video Processing
+* Scene Detection
+* Contact Sheet Generator
+* GIF Creator
+* Video Compression
+* Hardware Acceleration
+* GPU Encoding Support
+* AI-Based Frame Selection
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+1. Fork the repository
+2. Create a new branch
+3. Commit your changes
+4. Open a Pull Request
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+# 👨‍💻 Author
+
+**Asheeq Abdul**
+
+Flutter Developer | Python Full Stack Developer
+
+---
+
+⭐ If you found this project useful, consider giving it a star on GitHub.
